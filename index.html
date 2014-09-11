@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+	<head>
+		<title>unquote</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<script src="components/platform/platform.js"></script>
+		<link rel="import" href="components/polymer/polymer.html">
+		<link rel="import" href="components/font-roboto/roboto.html">
+		<link rel="import" href="components/paper-button/paper-button.html">
+		<style>
+html,body {
+	height: 100%;
+	margin: 0;
+	background-color: #E5E5E5;
+	font-family: 'RobotoDraft', sans-serif;
+}
+  .container {
+	  width: 80%;
+	  margin: 50px auto;
+  }
+		</style>
+	</head>
+	<body unresolved touch-action="auto">
+		<polymer-element name="my-ele">
+		<template>
+		<style>
+#core_card {
+	margin-top:40px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 400px;
+	height: 600px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+	background-color: rgb(255, 255, 255);
+}
+	  #paper_button {
+		  background: #4285f4;
+		  color: #fff;
+		  font-size:20px;
+	  }
+	  #paper_button:hover {
+		  background: #2a56c6;
+	  }
+	  #maintext{
+		  margin-left:auto;
+		  margin-right:auto;
+		  margin-top:auto;
+		  margin-bottom:auto;
+		  font-weight:bold;
+		  font-size:30px;
+		  color:#FF5151
+	  }
+		</style>
+
+		<core-card id="core_card" layout vertical>
+		<paper-button on-click="{{randomEat}}" label="今天中午吃啥?" raisedbutton="" id="paper_button" class="MainButton" role="button" tabindex="0" aria-label="今天中午吃啥?"></paper-button>
+		<div id="maintext">
+			{{nameEat}}
+		</div>
+		</core-card>
+		</template>
+		<script>
+var data = [
+{
+	name : "学五食堂",
+	op : 0.2,
+},
+{
+	name : "康博思中餐",
+	op : 0.2,
+},
+{
+	name : "家园",
+	op : 0.2,
+},
+{
+	name : "燕南美食",
+	op : 0.2,
+},
+{
+	name : "出去吃",
+	op : 0.2,
+},
+	];
+var get = function(){
+	var i = Math.floor(Math.random()*data.length);
+	if(Math.random()<data[i].op)
+		return data[i].name;
+	return get();
+};
+Polymer({
+	nameEat: "吃! 吃! 吃!",
+	randomEat: function(){
+		var name = get();
+		console.log("random :"+name);
+		this.nameEat = name;
+	}
+});
+		</script>
+		</polymer-element>
+		<my-ele></my-ele>
+	</body>
+
+</html>
