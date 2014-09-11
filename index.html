@@ -82,7 +82,7 @@ html,body {
 var data = [
 {
 	name : "学五食堂",
-	op : 0.2,
+	op : 0.3,
 },
 {
 	name : "康博思中餐",
@@ -90,23 +90,67 @@ var data = [
 },
 {
 	name : "家园",
-	op : 0.2,
+	op : 0.15,
 },
 {
 	name : "燕南美食",
-	op : 0.2,
+	op : 0.15,
+},
+{
+	name : "农园",
+	op : 0.01,
+},
+{
+	name : "康博思面食",
+	op : 0.05,
+},
+{
+	name : "康博思水饺",
+	op : 0.1,
+},
+{
+	name : "康博思西餐",
+	op : 0.02,
+},
+{
+	name : "学一",
+	op : 0.02,
+},
+{
+	name : "艺园",
+	op : 0.1,
 },
 {
 	name : "出去吃",
 	op : 0.2,
 },
+{
+	name : "燕南地下",
+	op : 0.1,
+},
+{
+	name : "松林",
+	op : 0.1,
+},
+{
+	name : "竹林",
+	op : 0.15,
+},
+{
+	name : "畅春园餐厅",
+	op : 0.05,
+},
+{
+	name : "桂林米粉",
+	op : 0.01,
+},
 	];
-var get = function(){
-	var i = Math.floor(Math.random()*data.length);
-	if(Math.random()<data[i].op)
-		return data[i].name;
-	return get();
-};
+	var get = function(){
+		var i = Math.floor(Math.random()*data.length);
+		if(Math.random()<data[i].op)
+			return data[i].name;
+		return get();
+	};
 
 Polymer({
 	nameEat: "吃! 吃! 吃!",
